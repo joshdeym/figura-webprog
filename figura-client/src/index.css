@@ -1,15 +1,24 @@
+@import "tailwindcss";
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  --text: #e5e7eb;
+  --text-h: #ffffff;
+  --bg: #020617;
+  --border: #0b1220;
+  --code-bg: #0b1220;
+  --accent: #ff6a00;
+  --accent-bg: rgba(255, 106, 0, 0.12);
+  --accent-border: rgba(255, 106, 0, 0.5);
+  --social-bg: rgba(11, 18, 32, 0.5);
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
+  --theme-bg: #020617;
+  --theme-surface: #0b1220;
+  --theme-text: #e5e7eb;
+  --theme-heading: #ffffff;
+  --theme-accent: #ff6a00;
+  --theme-accent-bg: rgba(255, 106, 0, 0.12);
+  --theme-accent-border: rgba(255, 106, 0, 0.5);
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -32,15 +41,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --text: #e5e7eb;
+    --text-h: #ffffff;
+    --bg: #020617;
+    --border: #0b1220;
+    --code-bg: #0b1220;
+    --accent: #ff6a00;
+    --accent-bg: rgba(255, 106, 0, 0.12);
+    --accent-border: rgba(255, 106, 0, 0.5);
+    --social-bg: rgba(11, 18, 32, 0.5);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
@@ -52,14 +61,74 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
+}
+
+.bg-primary {
+  background: var(--theme-bg);
+}
+
+.bg-surface {
+  background: var(--theme-surface);
+}
+
+.text-primary {
+  color: var(--theme-text);
+}
+
+.text-heading {
+  color: var(--theme-heading);
+}
+
+.text-accent {
+  color: var(--theme-accent);
+}
+
+.border-accent {
+  border-color: var(--theme-accent);
+}
+
+.hover-border-accent:hover {
+  border-color: var(--theme-accent);
+}
+
+.bg-accent-soft {
+  background: var(--theme-accent-bg);
+}
+
+.border-accent-soft {
+  border-color: var(--theme-accent-border);
+}
+
+.text-accent-light {
+  color: rgba(255, 106, 0, 0.7);
+}
+
+.bg-surface-dark {
+  background: rgba(11, 18, 32, 0.8);
+}
+
+.border-surface {
+  border-color: rgba(11, 18, 32, 0.5);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(to right, rgba(255, 106, 0, 0.3), var(--theme-accent));
+}
+
+.bg-gradient-cta {
+  background: linear-gradient(to right, #9333ea, var(--theme-accent));
+}
+
+.bg-image {
+  background: var(--theme-bg);
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  margin: 0;
+  text-align: left;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
