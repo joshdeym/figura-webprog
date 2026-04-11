@@ -1,36 +1,58 @@
-import './App.css';
-import Layout from './components/Layout';
-import AboutPage from './pages/AboutPage';
-import ArticleListPage from './pages/ArticleListPage';
-import ArticlePage from './pages/ArticlePage';
-import HomePage from './pages/HomePage';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import NotFoundPage from './pages/NotFoundPage';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const routes = [{
-  path: '/',
-  element: <Layout />,
-  // Error element
-  errorElement: <NotFoundPage />,
-  children: [{
-    // Path declaration
-    path: '/',
-    element: <HomePage />
+// HomePage Structure
+import Layout from "./components/Layout";
+import ArticlePage from "./pages/ArticlePage";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ArticleListPage from "./pages/ArticleListPage";
+
+import AuthLayout from "./components/AuthLayout";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+
+import NotFoundPage from "./pages/NotFoundPage";
+
+const routes = [
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        path: "",
+        element: <HomePage />,
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
+      },
+      {
+        path: "articles",
+        element: <ArticleListPage />,
+      },
+      {
+        path: "articles/:name",
+        element: <ArticlePage />,
+      },
+    ],
   },
   {
-    path: '/about',
-    element: <AboutPage />
+    path: "/auth/",
+    element: <AuthLayout />,
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        path: "signin",
+        element: <SignInPage />,
+      },
+      {
+        path: "signup",
+        element: <SignUpPage />,
+      },
+    ],
   },
-  {
-    path: '/articles',
-    element: <ArticleListPage />
-  },
-  {
-    path: '/articles/:name', // -->articles/learn-react
-    element: <ArticlePage />
-  }
-  ]
-}];
+];
 
 const router = createBrowserRouter(routes);
 

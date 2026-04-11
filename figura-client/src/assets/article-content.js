@@ -1,14 +1,14 @@
 const articles = [
   {
-    name: "react-props-and-styling",
+    name: "VLONE introduction",
     title: "Introduction to Vlone",
-    image: new URL('./vlone2.jpg', import.meta.url).href,
+    image: new URL('./vlone11.jpg', import.meta.url).href,
     content: [
       "Vlone is a streetwear brand founded in Harlem, New York, closely associated with the A$AP Mob collective.",
     ]
   },
   {
-    name: "react-functional-components",
+    name: "VLONE History",
     title: "Meaning Behind Vlone",
     image: new URL('./vlone3.jpg', import.meta.url).href,
     content: [
@@ -16,7 +16,7 @@ const articles = [
     ]
   },
   {
-    name: "react-component-lifecycle",
+    name: "VLONE Aesthetic",
     title: "Vlone Fashion Style",
     image: new URL('./vlone7.jpg', import.meta.url).href,
     content: [
@@ -24,7 +24,7 @@ const articles = [
     ]
   },
   {
-    name: "react-routing-basics",
+    name: "VLONE Controversies",
     title: "Popularity of Vlone",
     image: new URL('./vlone5.jpg', import.meta.url).href,
     content: [
@@ -32,7 +32,7 @@ const articles = [
     ]
   },
   {
-    name: "react-state-management",
+    name: "VLONE Future",
     title: "Vlone in Modern Streetwear",
     image: new URL('./vlone6.jpg', import.meta.url).href,
     content: [

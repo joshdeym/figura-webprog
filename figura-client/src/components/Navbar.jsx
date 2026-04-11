@@ -63,6 +63,22 @@ function Navbar() {
                 Articles
               </Link>
             </li>
+            <li>
+              <Link
+                to="/auth/signin"
+                className="inline-flex w-28 items-center justify-center rounded-full border border-accent px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-accent transition hover:bg-accent hover:text-black"
+              >
+                Sign In
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/auth/signup"
+                className="inline-flex w-28 items-center justify-center rounded-full border border-accent px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-accent transition hover:bg-accent hover:text-black"
+              >
+                Sign Up
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -77,6 +93,12 @@ function Navbar() {
               </li>
               <li>
                 <Link to="/articles" className="block px-2 py-2 text-heading bg-surface rounded-lg">Articles</Link>
+              </li>
+              <li>
+                <Link to="/auth/signin" className="block w-28 px-3 py-2 text-center text-accent border border-accent rounded-lg">Sign In</Link>
+              </li>
+              <li>
+                <Link to="/auth/signup" className="block w-28 px-3 py-2 text-center text-accent border border-accent rounded-lg">Sign Up</Link>
               </li>
             </ul>
           </div>
