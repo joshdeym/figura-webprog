@@ -1,4 +1,6 @@
 import Button from '../components/Button';
+import aboutHeroImage from '../assets/vlone2.jpg';
+import aboutMissionImage from '../assets/vlone3.jpg';
 
 export default function AboutPage() {
   return (
@@ -12,8 +14,8 @@ export default function AboutPage() {
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-heading mb-6">About VLONE</h1>
               <p className="text-lg md:text-xl text-primary leading-relaxed">VLONE is more than clothing. It's a lifestyle, a movement, and a statement. We create premium streetwear for those who dare to be different.</p>
             </div>
-            <div className="bg-gradient-to-br from-orange-600 to-orange-400 h-72 md:h-96 lg:h-screen flex items-center justify-center">
-              <span className="text-9xl"></span>
+            <div className="rounded-2xl overflow-hidden border border-accent h-72 md:h-96 lg:h-[38rem]">
+              <img src={aboutHeroImage} alt="About VLONE" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -29,8 +31,8 @@ export default function AboutPage() {
               <p className="text-md md:text-xl text-primary mb-6 leading-relaxed">At VLONE, we believe that fashion is a form of rebellion. Our mission is to create authentic, high-quality streetwear that empowers individuals to express their unique identity and stand out from the crowd.</p>
               <p className="text-md md:text-xl text-primary leading-relaxed">We're committed to crafting pieces that tell a story and inspire confidence in everyone who wears them.</p>
             </div>
-            <div className="bg-gradient-to-br from-orange-600 to-orange-400 rounded-lg h-72 md:h-96 flex items-center justify-center">
-              <span className="text-9xl"></span>
+            <div className="rounded-2xl overflow-hidden border border-accent h-72 md:h-96">
+              <img src={aboutMissionImage} alt="Our Mission" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -54,25 +56,6 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-heading mb-4">Rebellion</h3>
               <p className="text-primary text-lg leading-relaxed">We celebrate those who challenge the status quo. VLONE is for the bold, the fearless, and the independent thinkers.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="px-0 py-32 bg-surface w-full m-0">
-        <div className="px-4 md:px-20 mx-auto max-w-7xl">
-          <p className="text-accent font-bold uppercase tracking-widest mb-6 text-center">OUR TEAM</p>
-          <h2 className="text-6xl font-black text-heading mb-16 text-center">Meet The Crew</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[1, 2, 3, 4].map((member) => (
-              <div key={member} className="bg-primary rounded-2xl p-8 text-center border border-accent hover-border-accent transition">
-                <div className="bg-gradient-accent w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center text-heading text-5xl">
-                  
-                </div>
-                <h3 className="text-xl font-bold text-heading mb-2">Team Member {member}</h3>
-                <p className="text-accent font-semibold">Fashion Creative</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

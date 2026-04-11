@@ -62,6 +62,70 @@
 body {
   margin: 0;
   overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 106, 0, 0.14), transparent 28%),
+    radial-gradient(circle at 88% 92%, rgba(255, 106, 0, 0.1), transparent 30%),
+    #050505;
+  color: #f4f4f5;
+}
+
+/* Global VLONE overrides for legacy zinc utility classes. */
+.bg-white {
+  background-color: #0d0d0d !important;
+}
+
+.bg-zinc-50 {
+  background-color: #121212 !important;
+}
+
+.bg-zinc-100 {
+  background-color: #151515 !important;
+}
+
+.bg-zinc-200 {
+  background-color: #1c1c1c !important;
+}
+
+.text-zinc-900,
+.text-zinc-800,
+.text-zinc-700 {
+  color: #f5f5f5 !important;
+}
+
+.text-zinc-600,
+.text-zinc-500 {
+  color: #ff9a52 !important;
+}
+
+.border-zinc-200,
+.border-zinc-300,
+.border-zinc-500,
+.border-zinc-600 {
+  border-color: rgba(255, 106, 0, 0.45) !important;
+}
+
+.placeholder\:text-zinc-400::placeholder {
+  color: #ffb07a !important;
+}
+
+.focus\:border-zinc-500:focus,
+.focus\:border-zinc-600:focus {
+  border-color: #ff6a00 !important;
+  box-shadow: 0 0 0 2px rgba(255, 106, 0, 0.25);
+}
+
+.focus\:bg-zinc-50:focus {
+  background-color: #101010 !important;
+}
+
+.hover\:text-zinc-900:hover,
+.hover\:text-zinc-700:hover,
+.hover\:text-zinc-600:hover {
+  color: #ff6a00 !important;
+}
+
+.accent-zinc-900 {
+  accent-color: #ff6a00 !important;
 }
 
 .bg-primary {

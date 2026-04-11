@@ -1,8 +1,8 @@
 import Button from '../components/Button';
 import streetImage from '../assets/vlone4.jpg';
-import premiumQualityImage from '../assets/valone.jpg';
-import uniqueDesignsImage from '../assets/premiumquality.webp';
-import globalCommunityImage from '../assets/streets.webp';
+import globalCommunityImage from '../assets/vlone8.jpg';
+import premiumQualityImage from '../assets/vlone9.jpg';
+import streetCultureImage from '../assets/vlone10.jpg';
 
 export default function HomePage() {
   return (
@@ -38,26 +38,28 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
             <div className="bg-surface rounded-2xl overflow-hidden border border-accent hover:shadow-2xl transition hover-border-accent">
               <div className="w-full h-64 overflow-hidden">
+                <img src={globalCommunityImage} alt="Global Community" className="w-full h-full object-cover" />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-heading">Global Community</h3>
+              </div>
+            </div>
+
+            <div className="bg-surface rounded-2xl overflow-hidden border border-accent hover:shadow-2xl transition hover-border-accent">
+              <div className="w-full h-64 overflow-hidden">
                 <img src={premiumQualityImage} alt="Premium Quality" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-heading">Premium Quality</h3>
               </div>
             </div>
+
             <div className="bg-surface rounded-2xl overflow-hidden border border-accent hover:shadow-2xl transition hover-border-accent">
               <div className="w-full h-64 overflow-hidden">
-                <img src={uniqueDesignsImage} alt="Unique Designs" className="w-full h-full object-cover" />
+                <img src={streetCultureImage} alt="Street Culture" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-heading">Unique Designs</h3>
-              </div>
-            </div>
-            <div className="bg-surface rounded-2xl overflow-hidden border border-accent hover:shadow-2xl transition hover-border-accent">
-              <div className="w-full h-64 overflow-hidden">
-                <img src={globalCommunityImage} alt="Global Community" className="w-full h-full object-cover" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-heading">Global Community</h3>
+                <h3 className="text-2xl font-bold text-heading">Street Culture</h3>
               </div>
             </div>
           </div>
