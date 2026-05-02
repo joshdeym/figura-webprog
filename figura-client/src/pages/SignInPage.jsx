@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const inputClasses =
   "w-full rounded-xl border border-zinc-300 bg-zinc-100 px-4 py-3 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-500 focus:bg-zinc-50";
@@ -8,6 +10,31 @@ const actionButtonClass =
   "w-full rounded-lg py-3 text-[11px] tracking-[0.2em]";
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+  const { currentUser, login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [currentUser, navigate]);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setError("");
+
+    const result = login(email, password);
+    if (!result.ok) {
+      setError(result.message);
+      return;
+    }
+
+    navigate("/dashboard", { replace: true });
+  }
+
   return (
     <div className="mt-12">
       <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
@@ -17,7 +44,7 @@ const SignInPage = () => {
         Ipagpatuloy ang iyong istilo at identidad na matapang, maangas, at hindi sumusunod sa karamihan.
       </p>
 
-      <form className="mt-8 space-y-5">
+      <form onSubmit={handleSubmit} className="mt-8 space-y-5">
         <div>
           <label
             htmlFor="signin-email"
@@ -28,6 +55,8 @@ const SignInPage = () => {
           <input
             id="signin-email"
             type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
             placeholder="Email"
             autoComplete="email"
             className={inputClasses}
@@ -44,6 +73,8 @@ const SignInPage = () => {
           <input
             id="signin-password"
             type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
             placeholder="Current password"
             autoComplete="current-password"
             className={inputClasses}
@@ -60,8 +91,12 @@ const SignInPage = () => {
           </label>
         </div>
 
+        {error && (
+          <p className="text-sm text-red-600">{error}</p>
+        )}
+
         <Button
-          type="button"
+          type="submit"
           variant="primary"
           className={actionButtonClass}
         >
