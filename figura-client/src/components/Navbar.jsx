@@ -6,7 +6,10 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) =>
+    path === "/dashboard"
+      ? location.pathname.startsWith("/dashboard")
+      : location.pathname === path;
 
   return (
     <nav className="bg-surface border-b border-accent shadow-xl w-full m-0 p-0">
