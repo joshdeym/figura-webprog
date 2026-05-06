@@ -40,16 +40,16 @@ export function AuthProvider({ children }) {
   }
 
   function login(email, password) {
-    const users = getUsers();
-    const user = users.find(
-      (u) =>
-        u.email.toLowerCase() === email.toLowerCase() &&
-        u.password === password
-    );
-    if (!user) {
-      return { ok: false, message: "Invalid email or password." };
+    if (!email || !password) {
+      return { ok: false, message: "Please enter email and password." };
     }
-    const session = { id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email };
+
+    const session = {
+      id: Date.now(),
+      firstName: email.split('@')[0] || 'User',
+      lastName: '',
+      email,
+    };
     localStorage.setItem(SESSION_KEY, JSON.stringify(session));
     setCurrentUser(session);
     return { ok: true };

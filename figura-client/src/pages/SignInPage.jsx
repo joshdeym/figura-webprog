@@ -11,16 +11,10 @@ const actionButtonClass =
 
 const SignInPage = () => {
   const navigate = useNavigate();
-  const { currentUser, login } = useAuth();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    if (currentUser) {
-      navigate("/dashboard", { replace: true });
-    }
-  }, [currentUser, navigate]);
 
   function handleSubmit(event) {
     event.preventDefault();
