@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { DataGrid } from '@mui/x-data-grid';
 import Stack from '@mui/material/Stack';
@@ -15,72 +14,74 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 // Modern dashboard theme
 const dashboardTheme = createTheme({
     palette: {
-        mode: 'light',
+        mode: 'dark',
         primary: {
-            main: '#4f46e5',
-            light: '#6366f1',
-            dark: '#4338ca',
+            main: '#ff6a00',
+            light: '#ff8a3c',
+            dark: '#d45a00',
         },
         secondary: {
-            main: '#06b6d4',
+            main: '#f8fafc',
         },
         success: {
-            main: '#10b981',
+            main: '#f59e0b',
         },
         warning: {
-            main: '#f59e0b',
+            main: '#ffb347',
         },
         error: {
             main: '#ef4444',
         },
         background: {
-            default: '#f8fafc',
-            paper: '#ffffff',
+            default: '#020617',
+            paper: '#0b1220',
         },
         text: {
-            primary: '#1e293b',
-            secondary: '#64748b',
+            primary: '#f5f5f5',
+            secondary: '#d1d5db',
         },
-        divider: '#e2e8f0',
+        divider: '#374151',
     },
     typography: {
         fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
         h3: {
-            fontWeight: 700,
+            fontWeight: 800,
             fontSize: '1.875rem',
             letterSpacing: '-0.5px',
-            marginBottom: '2rem',
-            color: '#0f172a',
+            marginBottom: '1.5rem',
+            color: '#ffffff',
         },
         h5: {
             fontWeight: 700,
             fontSize: '1.25rem',
             letterSpacing: '-0.25px',
-            color: '#1e293b',
+            color: '#f5f5f5',
         },
         h6: {
             fontWeight: 600,
             fontSize: '0.875rem',
-            color: '#64748b',
+            color: '#9ca3af',
             textTransform: 'uppercase',
             letterSpacing: '0.5px',
         },
         body2: {
-            fontSize: '0.875rem',
-            color: '#64748b',
-            lineHeight: 1.5,
+            fontSize: '0.95rem',
+            color: '#d1d5db',
+            lineHeight: 1.6,
         },
     },
-    shape: { borderRadius: 12 },
+    shape: { borderRadius: 14 },
     components: {
         MuiCard: {
             styleOverrides: {
                 root: {
-                    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.04)',
-                    border: '1px solid #f1f5f9',
+                    boxShadow: '0 18px 60px rgba(0, 0, 0, 0.25)',
+                    border: '1px solid rgba(255, 106, 0, 0.12)',
+                    backgroundColor: '#111827',
                     '&:hover': {
-                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04)',
-                        transition: 'all 0.3s ease',
+                        transform: 'translateY(-1px)',
+                        boxShadow: '0 26px 70px rgba(0, 0, 0, 0.32)',
+                        transition: 'all 0.25s ease',
                     },
                 },
             },
@@ -88,25 +89,25 @@ const dashboardTheme = createTheme({
         MuiDataGrid: {
             styleOverrides: {
                 root: {
-                    border: '1px solid #e2e8f0',
-                    borderRadius: '12px',
-                    backgroundColor: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRadius: '16px',
+                    backgroundColor: '#0f172a',
                 },
                 columnHeader: {
-                    backgroundColor: '#f8fafc',
+                    backgroundColor: '#111827',
                     fontWeight: 700,
-                    color: '#1e293b',
-                    borderColor: '#e2e8f0',
+                    color: '#f5f5f5',
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                 },
                 row: {
                     '&:hover': {
-                        backgroundColor: '#f0f9ff',
+                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
                     },
-                    borderColor: '#e2e8f0',
+                    borderColor: 'rgba(255, 255, 255, 0.06)',
                 },
                 cell: {
-                    color: '#1e293b',
-                    borderColor: '#f1f5f9',
+                    color: '#e2e8f0',
+                    borderColor: 'rgba(255, 255, 255, 0.06)',
                 },
             },
         },
@@ -156,8 +157,6 @@ const rows = [
 ];
 
 function DashboardPage() {
-    const location = useLocation();
-
     const avgAge = (
         rows.reduce((sum, row) => sum + (row.age || 0), 0) /
         rows.filter((row) => row.age !== null).length
@@ -165,11 +164,11 @@ function DashboardPage() {
 
     return (
         <ThemeProvider theme={dashboardTheme}>
-            <Box sx={{ maxWidth: '1600px', mx: 'auto' }}>
+            <Box sx={{ maxWidth: '1600px', mx: 'auto', pb: 4, color: '#f5f5f5' }}>
                 {/* Page Header */}
                 <Box sx={{ mb: 4 }}>
                     <Typography variant="h3">Dashboard</Typography>
-                    <Typography variant="body2" sx={{ mt: 0.5 }}>
+                    <Typography variant="body2" sx={{ mt: 0.5, color: '#cbd5e1' }}>
                         Welcome back! Here's your performance overview.
                     </Typography>
                 </Box>
@@ -178,25 +177,25 @@ function DashboardPage() {
                 <Grid container spacing={3} sx={{ mb: 4 }}>
                     {/* Total Users Card */}
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card sx={{ p: 3, background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)' }}>
+                        <Card sx={{ p: 3, backgroundColor: '#111827' }}>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                 <Box>
-                                    <Typography variant="h6" sx={{ mb: 1.5 }}>
+                                    <Typography variant="h6" sx={{ mb: 1.5, color: '#9ca3af' }}>
                                         Total Users
                                     </Typography>
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            fontWeight: 700,
+                                            fontWeight: 800,
                                             fontSize: '2rem',
-                                            color: '#4f46e5',
+                                            color: '#ff6a00',
                                         }}
                                     >
                                         {rows.length}
                                     </Typography>
                                     <Box sx={{ display: 'flex', alignItems: 'center', mt: 1.5 }}>
-                                        <TrendingUpIcon sx={{ fontSize: '1rem', color: '#10b981', mr: 0.5 }} />
-                                        <Typography variant="body2" sx={{ color: '#10b981' }}>
+                                        <TrendingUpIcon sx={{ fontSize: '1rem', color: '#ffb347', mr: 0.5 }} />
+                                        <Typography variant="body2" sx={{ color: '#f59e0b' }}>
                                             12% increase
                                         </Typography>
                                     </Box>
@@ -207,18 +206,18 @@ function DashboardPage() {
 
                     {/* Average Age Card */}
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card sx={{ p: 3, background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)' }}>
+                        <Card sx={{ p: 3, backgroundColor: '#111827' }}>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                 <Box>
-                                    <Typography variant="h6" sx={{ mb: 1.5 }}>
+                                    <Typography variant="h6" sx={{ mb: 1.5, color: '#9ca3af' }}>
                                         Average Age
                                     </Typography>
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            fontWeight: 700,
+                                            fontWeight: 800,
                                             fontSize: '2rem',
-                                            color: '#06b6d4',
+                                            color: '#ff8a3c',
                                         }}
                                     >
                                         {avgAge}
@@ -230,8 +229,8 @@ function DashboardPage() {
                                             variant="outlined"
                                             sx={{
                                                 height: '24px',
-                                                borderColor: '#cbd5e1',
-                                                color: '#64748b',
+                                                borderColor: 'rgba(255, 255, 255, 0.16)',
+                                                color: '#d1d5db',
                                             }}
                                         />
                                     </Box>
@@ -242,18 +241,18 @@ function DashboardPage() {
 
                     {/* Active Status Card */}
                     <Grid item xs={12} sm={6} md={4}>
-                        <Card sx={{ p: 3, background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)' }}>
+                        <Card sx={{ p: 3, backgroundColor: '#111827' }}>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                 <Box>
-                                    <Typography variant="h6" sx={{ mb: 1.5 }}>
+                                    <Typography variant="h6" sx={{ mb: 1.5, color: '#9ca3af' }}>
                                         Active Users
                                     </Typography>
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            fontWeight: 700,
+                                            fontWeight: 800,
                                             fontSize: '2rem',
-                                            color: '#10b981',
+                                            color: '#f59e0b',
                                         }}
                                     >
                                         {Math.round(rows.length * 0.85)}
@@ -264,11 +263,11 @@ function DashboardPage() {
                                                 width: '8px',
                                                 height: '8px',
                                                 borderRadius: '50%',
-                                                backgroundColor: '#10b981',
+                                                backgroundColor: '#f59e0b',
                                                 mr: 0.5,
                                             }}
                                         />
-                                        <Typography variant="body2" sx={{ color: '#10b981' }}>
+                                        <Typography variant="body2" sx={{ color: '#f59e0b' }}>
                                             Last 24h
                                         </Typography>
                                     </Box>
@@ -282,11 +281,11 @@ function DashboardPage() {
                 <Grid container spacing={3} sx={{ mb: 4 }}>
                     {/* Progress Gauges */}
                     <Grid item xs={12} sm={6}>
-                        <Card sx={{ p: 3 }}>
-                            <Typography variant="h5" sx={{ mb: 3 }}>
+                        <Card sx={{ p: 3, backgroundColor: '#111827' }}>
+                            <Typography variant="h5" sx={{ mb: 3, color: '#f5f5f5' }}>
                                 Performance Metrics
                             </Typography>
-                            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2 }}>
+                            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: 2, flexWrap: 'wrap' }}>
                                 <Box sx={{ textAlign: 'center' }}>
                                     <Gauge
                                         width={140}
@@ -296,14 +295,14 @@ function DashboardPage() {
                                         endAngle={110}
                                         sx={{
                                             '& .MuiGauge-arc': {
-                                                stroke: '#4f46e5',
+                                                stroke: '#ff6a00',
                                             },
                                             '& .MuiGauge-valueText': {
-                                                fill: '#4f46e5',
+                                                fill: '#ff6a00',
                                             },
                                         }}
                                     />
-                                    <Typography variant="body2" sx={{ mt: 1 }}>
+                                    <Typography variant="body2" sx={{ mt: 1, color: '#d1d5db' }}>
                                         Performance
                                     </Typography>
                                 </Box>
@@ -318,14 +317,14 @@ function DashboardPage() {
                                         valueMax={100}
                                         sx={{
                                             '& .MuiGauge-arc': {
-                                                stroke: '#06b6d4',
+                                                stroke: '#ff8a3c',
                                             },
                                             '& .MuiGauge-valueText': {
-                                                fill: '#06b6d4',
+                                                fill: '#ff8a3c',
                                             },
                                         }}
                                     />
-                                    <Typography variant="body2" sx={{ mt: 1 }}>
+                                    <Typography variant="body2" sx={{ mt: 1, color: '#d1d5db' }}>
                                         Engagement
                                     </Typography>
                                 </Box>
@@ -335,17 +334,17 @@ function DashboardPage() {
 
                     {/* Pie Chart */}
                     <Grid item xs={12} sm={6}>
-                        <Card sx={{ p: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                            <Typography variant="h5" sx={{ mb: 3, width: '100%' }}>
+                        <Card sx={{ p: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#111827' }}>
+                            <Typography variant="h5" sx={{ mb: 3, width: '100%', color: '#f5f5f5' }}>
                                 Category Distribution
                             </Typography>
                             <PieChart
                                 series={[
                                     {
                                         data: [
-                                            { id: 0, value: 30, label: 'Premium', color: '#4f46e5' },
-                                            { id: 1, value: 25, label: 'Standard', color: '#06b6d4' },
-                                            { id: 2, value: 20, label: 'Basic', color: '#10b981' },
+                                            { id: 0, value: 30, label: 'Premium', color: '#ff6a00' },
+                                            { id: 1, value: 25, label: 'Standard', color: '#ff8a3c' },
+                                            { id: 2, value: 20, label: 'Basic', color: '#d1d5db' },
                                         ],
                                     },
                                 ]}
@@ -364,15 +363,15 @@ function DashboardPage() {
                 </Grid>
 
                 {/* Bar Chart */}
-                <Card sx={{ p: 3, mb: 4 }}>
-                    <Typography variant="h5" sx={{ mb: 3 }}>
+                <Card sx={{ p: 3, mb: 4, backgroundColor: '#111827' }}>
+                    <Typography variant="h5" sx={{ mb: 3, color: '#f5f5f5' }}>
                         Quarterly Performance
                     </Typography>
                     <Box sx={{ overflowX: 'auto' }}>
                         <BarChart
                             series={[
-                                { data: [35, 44, 24, 34], label: 'Sales', color: '#4f46e5' },
-                                { data: [51, 6, 49, 30], label: 'Revenue', color: '#06b6d4' },
+                                { data: [35, 44, 24, 34], label: 'Sales', color: '#ff6a00' },
+                                { data: [51, 6, 49, 30], label: 'Revenue', color: '#ff8a3c' },
                             ]}
                             height={350}
                             xAxis={[{ data: ['Q1', 'Q2', 'Q3', 'Q4'], scaleType: 'band' }]}
@@ -388,8 +387,8 @@ function DashboardPage() {
                 </Card>
 
                 {/* Users Table Section */}
-                <Card sx={{ mb: 4, p: 3 }}>
-                    <Typography variant="h5" sx={{ mb: 3 }}>
+                <Card sx={{ mb: 4, p: 3, backgroundColor: '#111827' }}>
+                    <Typography variant="h5" sx={{ mb: 3, color: '#f5f5f5' }}>
                         Users Overview
                     </Typography>
                     <Box sx={{ height: 450, width: '100%' }}>
@@ -413,10 +412,18 @@ function DashboardPage() {
                                 },
                                 '& .MuiDataGrid-cell': {
                                     paddingY: 1.5,
+                                    color: '#e2e8f0',
                                 },
                                 '& .MuiDataGrid-columnHeaders': {
-                                    backgroundColor: '#f8fafc',
-                                    borderBottom: '1px solid #e2e8f0',
+                                    backgroundColor: '#0f172a',
+                                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                                    color: '#f5f5f5',
+                                },
+                                '& .MuiDataGrid-columnHeaderTitle': {
+                                    fontWeight: 700,
+                                },
+                                '& .MuiDataGrid-virtualScroller': {
+                                    backgroundColor: '#0b1220',
                                 },
                             }}
                         />
@@ -424,23 +431,23 @@ function DashboardPage() {
                 </Card>
 
                 {/* Map Section */}
-                <Card sx={{ p: 3, overflow: 'hidden' }}>
-                    <Typography variant="h5" sx={{ mb: 3 }}>
+                <Card sx={{ p: 3, overflow: 'hidden', backgroundColor: '#111827' }}>
+                    <Typography variant="h5" sx={{ mb: 3, color: '#f5f5f5' }}>
                         Location Map
                     </Typography>
                     <Box sx={{ height: 500, width: '100%', borderRadius: '8px', overflow: 'hidden' }}>
                         <MapContainer center={[14.604253, 120.984164]} zoom={13} style={{ height: '100%', width: '100%' }}>
                             <TileLayer
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             />
                             <Marker position={[14.604253, 120.984164]}>
                                 <Popup>
                                     <Box sx={{ textAlign: 'center' }}>
-                                        <Typography variant="body1" sx={{ fontWeight: 600, mb: 0.5 }}>
+                                        <Typography variant="body1" sx={{ fontWeight: 600, mb: 0.5, color: '#f5f5f5' }}>
                                             National University Manila
                                         </Typography>
-                                        <Typography variant="body2">
+                                        <Typography variant="body2" sx={{ color: '#d1d5db' }}>
                                             551 M.F. Jhocson St, Sampaloc,<br />
                                             Manila, 1008 Metro Manila
                                         </Typography>

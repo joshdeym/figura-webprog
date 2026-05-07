@@ -32,52 +32,52 @@ const drawerWidth = 280;
 // Modern theme configuration
 const dashboardTheme = createTheme({
     palette: {
-        mode: 'light',
+        mode: 'dark',
         primary: {
-            main: '#4f46e5', // Indigo
-            light: '#6366f1',
-            dark: '#4338ca',
+            main: '#ff6a00',
+            light: '#ff8a3c',
+            dark: '#d45a00',
         },
         secondary: {
-            main: '#06b6d4', // Cyan
+            main: '#f8fafc',
         },
         background: {
-            default: '#f8fafc',
-            paper: '#ffffff',
+            default: '#020617',
+            paper: '#0b1220',
         },
         text: {
-            primary: '#1e293b',
-            secondary: '#64748b',
+            primary: '#f5f5f5',
+            secondary: '#d1d5db',
         },
-        divider: '#e2e8f0',
+        divider: '#374151',
         action: {
-            hover: '#f1f5f9',
-            selected: '#eef2ff',
+            hover: '#111827',
+            selected: 'rgba(255, 106, 0, 0.16)',
         },
     },
     typography: {
         fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
-        h6: { fontWeight: 600, fontSize: '1.1rem', letterSpacing: '-0.5px' },
-        h5: { fontWeight: 600, fontSize: '1.5rem' },
-        body1: { fontSize: '0.95rem', lineHeight: 1.6 },
+        h6: { fontWeight: 700, fontSize: '1.1rem', letterSpacing: '-0.5px', color: '#f5f5f5' },
+        h5: { fontWeight: 700, fontSize: '1.5rem', color: '#f5f5f5' },
+        body1: { fontSize: '0.95rem', lineHeight: 1.6, color: '#d1d5db' },
     },
     shape: { borderRadius: 12 },
     components: {
         MuiAppBar: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#ffffff',
-                    color: '#1e293b',
-                    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
-                    borderBottom: '1px solid #e2e8f0',
+                    backgroundColor: '#0b1220',
+                    color: '#f5f5f5',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
+                    borderBottom: '1px solid rgba(255, 106, 0, 0.18)',
                 },
             },
         },
         MuiDrawer: {
             styleOverrides: {
                 paper: {
-                    backgroundColor: '#ffffff',
-                    borderRight: '1px solid #e2e8f0',
+                    backgroundColor: '#0b1220',
+                    borderRight: '1px solid rgba(255, 106, 0, 0.18)',
                 },
             },
         },
@@ -85,8 +85,8 @@ const dashboardTheme = createTheme({
             styleOverrides: {
                 root: {
                     textTransform: 'none',
-                    fontWeight: 500,
-                    borderRadius: '8px',
+                    fontWeight: 700,
+                    borderRadius: '10px',
                 },
             },
         },
@@ -192,16 +192,16 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: '#f8fafc',
-    border: '1px solid #e2e8f0',
+    backgroundColor: '#111827',
+    border: '1px solid rgba(255, 106, 0, 0.14)',
     '&:hover': {
-        backgroundColor: '#f1f5f9',
-        borderColor: '#cbd5e1',
+        backgroundColor: '#161b26',
+        borderColor: 'rgba(255, 106, 0, 0.24)',
     },
     '&:focus-within': {
-        backgroundColor: '#ffffff',
-        borderColor: '#4f46e5',
-        boxShadow: '0 0 0 3px rgba(79, 70, 229, 0.1)',
+        backgroundColor: '#111827',
+        borderColor: '#ff6a00',
+        boxShadow: '0 0 0 3px rgba(255, 106, 0, 0.12)',
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -223,7 +223,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         fontSize: '0.95rem',
-        color: '#1e293b',
+        color: '#f5f5f5',
         '&::placeholder': {
             color: '#94a3b8',
             opacity: 1,
@@ -258,7 +258,7 @@ const DashLayout = () => {
 
     return (
         <ThemeProvider theme={dashboardTheme}>
-            <Box sx={{ display: 'flex', bgcolor: '#f8fafc', minHeight: '100vh' }}>
+            <Box sx={{ display: 'flex', bgcolor: '#020617', minHeight: '100vh' }}>
                 <CssBaseline />
                 {/* App Bar */}
                 <AppBar position="fixed" open={open} elevation={0}>
@@ -270,8 +270,8 @@ const DashLayout = () => {
                             edge="start"
                             sx={{
                                 marginRight: 3,
-                                color: '#4f46e5',
-                                '&:hover': { backgroundColor: 'rgba(79, 70, 229, 0.08)' },
+                                color: '#ff6a00',
+                                '&:hover': { backgroundColor: 'rgba(255, 106, 0, 0.18)' },
                             }}
                         >
                             {open ? <MenuOpenIcon /> : <MenuIcon />}
@@ -283,7 +283,7 @@ const DashLayout = () => {
                             sx={{
                                 flexGrow: 1,
                                 fontWeight: 700,
-                                color: '#1e293b',
+                                color: '#f5f5f5',
                                 letterSpacing: '-0.5px',
                             }}
                         >
@@ -304,13 +304,13 @@ const DashLayout = () => {
                             onClick={handleLogout}
                             endIcon={<LogoutIcon />}
                             sx={{
-                                color: '#1e293b',
-                                borderColor: '#cbd5e1',
+                                color: '#ff6a00',
+                                borderColor: '#ff6a00',
                                 border: '1px solid',
                                 ml: 2,
                                 '&:hover': {
-                                    backgroundColor: '#f1f5f9',
-                                    borderColor: '#94a3b8',
+                                    backgroundColor: 'rgba(255, 106, 0, 0.12)',
+                                    borderColor: '#ff8a3c',
                                 },
                             }}
                         >
@@ -324,7 +324,7 @@ const DashLayout = () => {
                         <Typography
                             variant="h6"
                             sx={{
-                                color: '#4f46e5',
+                                color: '#ff6a00',
                                 fontWeight: 700,
                                 mr: open ? 0 : 'auto',
                                 opacity: open ? 1 : 0,
@@ -341,7 +341,7 @@ const DashLayout = () => {
                             )}
                         </IconButton>
                     </DrawerHeader>
-                    <Divider sx={{ borderColor: '#e2e8f0' }} />
+                    <Divider sx={{ borderColor: '#374151' }} />
                     {/* Drawer List */}
                     <List sx={{ pt: 2 }}>
                         {dashBoardNavItems.map(({ label, to, icon: Icon }) => {
@@ -356,14 +356,14 @@ const DashLayout = () => {
                                             minHeight: 44,
                                             px: 2,
                                             justifyContent: open ? 'initial' : 'center',
-                                            borderRadius: '8px',
+                                            borderRadius: '12px',
                                             mx: 1,
-                                            color: isActive ? '#4f46e5' : '#64748b',
-                                            backgroundColor: isActive ? 'rgba(79, 70, 229, 0.08)' : 'transparent',
+                                            color: isActive ? '#ff6a00' : '#d1d5db',
+                                            backgroundColor: isActive ? 'rgba(255, 106, 0, 0.16)' : 'transparent',
                                             '&:hover': {
-                                                backgroundColor: isActive ? 'rgba(79, 70, 229, 0.12)' : '#f1f5f9',
+                                                backgroundColor: isActive ? 'rgba(255, 106, 0, 0.22)' : 'rgba(255, 255, 255, 0.05)',
                                             },
-                                            fontWeight: isActive ? 600 : 500,
+                                            fontWeight: isActive ? 700 : 500,
                                         }}
                                     >
                                         <ListItemIcon
@@ -392,7 +392,7 @@ const DashLayout = () => {
                         })}
                     </List>
                 </Drawer>
-                <Box component="main" sx={{ flexGrow: 1, p: 3, bgcolor: '#f8fafc' }}>
+                <Box component="main" sx={{ flexGrow: 1, p: 3, bgcolor: '#020617' }}>
                     <DrawerHeader />
                     {/* Content */}
                     <Outlet />
