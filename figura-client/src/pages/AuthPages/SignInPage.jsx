@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-import { useAuth } from "../context/AuthContext.jsx";
+import Button from "../../components/Button";
+import { useAuth } from "../../context/AuthContext.jsx";
 
 const inputClasses =
   "w-full rounded-xl border border-zinc-300 bg-zinc-100 px-4 py-3 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-500 focus:bg-zinc-50";

@@ -1,8 +1,8 @@
-import Button from '../components/Button';
-import streetImage from '../assets/vlone4.jpg';
-import globalCommunityImage from '../assets/vlone8.jpg';
-import premiumQualityImage from '../assets/vlone9.jpg';
-import streetCultureImage from '../assets/vlone10.jpg';
+import Button from '../../components/Button';
+import streetImage from '../../assets/vlone4.jpg';
+import globalCommunityImage from '../../assets/vlone8.jpg';
+import premiumQualityImage from '../../assets/vlone9.jpg';
+import streetCultureImage from '../../assets/vlone10.jpg';
 
 export default function HomePage() {
   return (

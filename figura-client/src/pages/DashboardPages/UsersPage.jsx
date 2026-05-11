@@ -23,7 +23,7 @@ import { useTheme } from '@mui/material/styles';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { DataGrid } from '@mui/x-data-grid';
-import usersSeed from '../assets/data/users.json?raw';
+import usersSeed from '../../data/users.json?raw';
 
 const roles = ['admin', 'editor', 'viewer'];
 const genders = ['male', 'female', 'other'];
@@ -72,7 +72,7 @@ const loadUsers = () => {
   } catch (error) {
     return {
       users: [],
-      error: 'Unable to read users from src/assets/users.json.',
+      error: 'Unable to read users from src/data/users.json.',
     };
   }
 };
@@ -572,7 +572,7 @@ const UsersPage = () => {
                           onMouseDown={(event) => event.preventDefault()}
                           aria-label="toggle password visibility"
                         >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                          <VisibilityOff />
                         </IconButton>
                       </InputAdornment>
                     ),

@@ -1,6 +1,6 @@
-import Button from '../components/Button';
-import aboutHeroImage from '../assets/vlone2.jpg';
-import aboutMissionImage from '../assets/vlone3.jpg';
+import Button from '../../components/Button';
+import aboutHeroImage from '../../assets/vlone2.jpg';
+import aboutMissionImage from '../../assets/vlone3.jpg';
 
 export default function AboutPage() {
   return (
